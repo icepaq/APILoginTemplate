@@ -1,34 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# API SignUp / Login Template
+This is an login system for web applications that use an API backend to render front end components.
 
-## Getting Started
+Created with Next.js
 
-First, run the development server:
+## How it Works
+There are three pages.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. Login - pages/login
+2. Signup - pages/index
+3. Secure - pages/secure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Signup
+Type in an email/username and password. When you press sign up /api/signup is called. The information is stored in a MongoDB collection. The password is salted and hashed using SHA512.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Login
+Provide your email and password. When you press login, a request is sent to /api/login. From login.js authenticate.js is called to authenticate your login credentials. 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+If the credentials match the database, login.js calls getToken.jsa unique number from 0 - 100 000 000 is generated. This number is a temporary API key. 
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+The API key is stored in the database with an expiry epoch. The API is key is also stored as a cookie with same expiry time.
 
-## Learn More
+### Secure
+This page is just an example showing how to authenticated API key works. The page will show your key (the cookie) and if it is valid or not.
 
-To learn more about Next.js, take a look at the following resources:
+Secure calls api/verified and passes your token stored in cookies. From there api/modules/CheckToken.js is called and returns true or false depending on whether your token has expired or not.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+In production your API backend will take the API key and validate it. The rest of the backend functionality will only work if the key is valid.

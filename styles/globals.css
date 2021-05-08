@@ -4,6 +4,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  background-color: rgb(37, 37, 37);
 }
 
 a {
@@ -11,6 +13,145 @@ a {
   text-decoration: none;
 }
 
+h1, h2, h3, h4, h5, p {
+  color: white;
+}
+
+h1 {
+  font-size: 60px;
+}
+
 * {
   box-sizing: border-box;
+}
+
+.box {
+  margin: auto;
+  width: 30%;
+  height: 500px;
+  margin-top: 100px;
+  border-style: solid;
+
+  text-align: center;
+
+  -webkit-animation: Border 8s infinite alternate;
+}
+
+
+@-webkit-keyframes Border {
+  0% {border-color: rgb(255, 80, 80);}
+  20% {border-color: orange;}
+  60% {border-color: lime;}
+  80% {border-color: skyblue}
+  100% {border-color: purple}
+}
+
+.inputs {
+  margin-top: 100px;
+}
+
+.input {
+  margin-top: 15px;
+}
+
+input {
+  height: 50px;
+  width: 350px;
+
+  font-size: 22px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  padding: 10px;
+
+  margin-top: 15px;
+}
+
+.submit {
+  color: rgb(32, 32, 32);
+  background-color: white;
+  
+  margin: auto;
+
+  width: 350px;
+  height: 60px;
+
+  border-radius: 3px;
+
+  text-align: center;
+
+  margin-top: 30px;
+
+  font-family: Arial;
+  font-size: 24px;
+  font-weight: bold;
+
+  cursor: default;
+
+  transition: 2s;
+
+  border-width: 5px;
+  border-style: solid;
+  border-color: white;
+}
+
+@-webkit-keyframes Border {
+  0% {border-color: white}
+  20% {border-color: rgb(255, 80, 80);}
+  40% {border-color: orange;}
+  60% {border-color: lime;}
+  80% {border-color: skyblue}
+  100% {border-color: purple}
+}
+
+.submit:hover {
+  -webkit-animation: Border 8s infinite alternate;
+
+  background-color: rgb(37, 37, 37);
+  color: white;
+}
+
+.text {
+  padding-top: 10px;
+}
+
+.thanks {
+  margin: auto;
+  width: 50%;
+
+  color: white;
+  text-align: center;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 64px;
+  font-weight: bolder;
+
+}
+
+.button {
+  height: 50px;
+  width: 350px;
+
+  margin-top: 30px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 30px;
+
+  text-align: center;
+  padding-top: 6px;
+
+  background-color: white;
+
+  cursor: default;
+
+  transition: .5s;
+
+  border-style: solid;
+  border-width: 3px;
+  border-color: white;
+}
+
+.button:hover {
+  color: white;
+  background-color: rgb(37, 37, 37);
 }
