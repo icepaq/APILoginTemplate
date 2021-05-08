@@ -21,7 +21,7 @@ If the credentials match the database, login.js calls getToken.jsa unique number
 The API key is stored in the database with an expiry epoch. The API is key is also stored as a cookie with same expiry time.
 
 ### Secure
-This page is just an example showing how the authenticated API key works. The page will show your key (the cookie) and if it is valid or not.
+This page is just an example showing how authentication works. The page will show your key (the cookie) and if it is valid or not.
 
 Secure calls api/verified and passes your token. From there api/modules/CheckToken.js is called and returns true or false depending on whether your token has expired or not.
 
