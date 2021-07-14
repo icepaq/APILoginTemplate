@@ -3,6 +3,8 @@ This is an login system for web applications that use an API backend to render f
 
 Created with Next.js
 
+**THIS TEMPLATE SHOULD BE USED AS REFERENCE ONLY. IT IS NOT FIT TO BE AN OUT OF THE BOX AUTHENTICATION SYSTEM**
+
 ## How it Works
 There are three pages.
 
